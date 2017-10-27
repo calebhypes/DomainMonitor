@@ -10,30 +10,24 @@
           <li><a href="#">Export</a></li>
         </ul>
       </div>
-      
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h2 class="sub-header">Add New</h2>
 
-        <h1 class="page-header">Domains</h1>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Domain Monitor <span class="add-new"><h3>Add New Domain <i class="fa fa-plus"></i></h3></span></h1>
+        <form action="/dashboard" method="POST">
+          <input type="text" name="domain" placeholder="EX: google.com">
+        </form>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Domain</th>
+                <th>Domain Name</th>
                 <th>Created Date</th>
-                <th>Updated Date</th>
+                <th>Last Updated Date</th>
                 <th>Expiry Date</th>
-                <th>SSL</th>
+                <th>SSL?</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1,001</td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -41,4 +35,8 @@
     </div>
   </div>
 
-<% include ../partials/footer %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  <script src="/js/dashboard.js"></script>
+  </body>
+</html>

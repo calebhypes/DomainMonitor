@@ -1,5 +1,7 @@
 var express      = require('express'),
-    router       = express.Router();
+    router       = express.Router(),
+    whois        = require('whois-json'),
+    domain       = require('../models/domain');
 
 // INDEX
 router.get("/", function(req, res) {
