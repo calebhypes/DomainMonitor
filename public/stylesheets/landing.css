@@ -21,3 +21,15 @@
     position: absolute;
     top: 0;
 }
+
+.auth {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.auth a {
+    padding-right: 10px;
+    margin-right: 5px;
+}
