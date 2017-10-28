@@ -111,10 +111,14 @@ body {
 }
 
 input {
-  width: 100%;
+  width: 92%;
   padding: 13px 13px 13px 20px;
   box-sizing: border-box;
   border: 3px solid rgba(0,0,0,0);
+}
+
+#add-new {
+  margin-top: 9px;
 }
 
 h3 {
