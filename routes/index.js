@@ -5,7 +5,7 @@ var express      = require('express'),
 
 // Root route
 router.get("/", function(req, res) {
-    res.send("This is the NEW index page");
+    res.render("landing");
 });
 
 // Authentication routes here

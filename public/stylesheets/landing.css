@@ -1,0 +1,23 @@
+.center {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding-top: 40vh;
+    height: 100vh;
+    color: #fff;
+}
+
+.center hr {
+    width: 25%;
+}
+
+.background {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+}

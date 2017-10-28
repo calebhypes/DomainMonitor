@@ -7,7 +7,8 @@ var express         = require('express'),
     LocalStrategy   = require('passport-local'),
     whois           = require('whois-json'),
     methodOverride  = require('method-override'),
-    User            = require('./models/user');
+    User            = require('./models/user'),
+    Domain          = require('./models/domain');
 
 // Require routes
 var dashboardRoutes = require('./routes/dashboard'),
