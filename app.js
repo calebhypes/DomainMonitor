@@ -6,6 +6,7 @@ var express         = require('express'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
     whois           = require('whois-json'),
+    methodOverride  = require('method-override'),
     User            = require('./models/user');
 
 // Require routes
@@ -16,6 +17,7 @@ var dashboardRoutes = require('./routes/dashboard'),
 mongoose.connect('mongodb://localhost/whois', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
 

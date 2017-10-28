@@ -117,16 +117,11 @@ input {
   border: 3px solid rgba(0,0,0,0);
 }
 
-#add-new {
-  margin-top: 9px;
-}
-
-h3 {
-  padding-bottom: 9px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .page-header {
   margin-bottom: 0;
+}
+
+#center-form {
+  width: 30%;
+  margin: 25px auto;
 }

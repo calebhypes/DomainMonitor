@@ -46,7 +46,13 @@ router.post("/", function(req, res) {
 
 // NEW
 router.get("/new", function(req, res) {
-    res.send("New domain form here!");
+    res.render("dashboard/new");
+});
+
+router.get("/:id/edit", function(req, res) {
+    Domain.findById(req.params.id, function(err, foundDomain) {
+        res.render("dashboard/edit", {domain: foundDomain})
+    });
 });
 
 module.exports = router;

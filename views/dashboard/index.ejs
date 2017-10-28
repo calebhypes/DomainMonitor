@@ -12,11 +12,7 @@
       </div>
 
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">Domain Monitor <span class="add-new"><h3>Add New Domain <i class="fa fa-plus"></i></h3></span></h1>
-        <form id="add-domain">
-          <input type="text" name="domain" placeholder="EX: google.com">
-          <button id="add-new" class="pull-right btn btn-primary">Add Domain</button>
-        </form>
+        <h1 class="page-header">Domain Monitor <a class="add-new btn btn-primary" href="/dashboard/new">Add New Domain <i class="fa fa-plus"></i></a></h1>
         <div class="table-responsive">
           <table id="domain-list" class="table table-striped">
             <thead>
@@ -36,7 +32,7 @@
                   <td><%= domain.lastUpdated %></td>
                   <td><%= domain.expiryDate %></td>
                   <td>Yes</td>
-                  <td><button class="btn btn-primary">Edit</button></td>
+                  <td><a class="btn btn-primary" href="/dashboard/<%= domain._id %>/edit">Edit</a></td>
                 </tr>
               <% }) %>
             </tbody>
@@ -47,7 +43,6 @@
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>        
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-  <script src="/js/dashboard.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
