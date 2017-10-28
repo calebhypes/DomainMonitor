@@ -8,4 +8,4 @@ var domainSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model("Doomain", domainSchema);
+module.exports = mongoose.model("Domain", domainSchema);

@@ -5,7 +5,13 @@ var express      = require('express'),
 
 // INDEX
 router.get("/", function(req, res) {
-    res.render("dashboard/index");
+    Domain.find({}, function(err, allDomains) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("dashboard/index", {domains: allDomains, page: 'dashboard'});
+        }
+    });
 });
 
 // CREATE
@@ -25,6 +31,15 @@ router.post("/", function(req, res) {
         var expiryDate = data.registryExpiryDate;
         var newDomain = {domain: domain, creationDate: creationDate, lastUpdated: lastUpdated, expiryDate: expiryDate};
         console.log(newDomain);
+
+        Domain.create(newDomain, function(err, newlyCreated) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Added new domain to database!");
+                res.redirect("/dashboard");
+            };
+        });
     });
     // add new domain to DB
 });

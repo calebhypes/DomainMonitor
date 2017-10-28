@@ -18,7 +18,7 @@
           <button id="add-new" class="pull-right btn btn-primary">Add Domain</button>
         </form>
         <div class="table-responsive">
-          <table class="table table-striped">
+          <table id="domain-list" class="table table-striped">
             <thead>
               <tr>
                 <th>Domain Name</th>
@@ -29,6 +29,16 @@
               </tr>
             </thead>
             <tbody>
+              <% domains.forEach(function(domain) { %>
+                <tr>
+                  <td><%= domain.domain %></td>
+                  <td><%= domain.creationDate %></td>
+                  <td><%= domain.lastUpdated %></td>
+                  <td><%= domain.expiryDate %></td>
+                  <td>Yes</td>
+                  <td><button class="btn btn-primary">Edit</button></td>
+                </tr>
+              <% }) %>
             </tbody>
           </table>
         </div>
