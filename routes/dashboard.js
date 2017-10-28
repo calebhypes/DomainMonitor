@@ -29,7 +29,13 @@ router.post("/", function(req, res) {
         var creationDate = data.creationDate;
         var lastUpdated = data.updatedDate;
         var expiryDate = data.registryExpiryDate;
-        var newDomain = {domain: domain, creationDate: creationDate, lastUpdated: lastUpdated, expiryDate: expiryDate};
+        var owner = {
+            id: req.user._id,
+            username: req.user.username
+        };
+        // var nameServers = JSON.stringify(data.nameServers).split(" ");
+        var sslExists = "Yes";
+        var newDomain = {domain: domain, creationDate: creationDate, lastUpdated: lastUpdated, expiryDate: expiryDate, owner: owner, sslExists: sslExists};
         console.log(newDomain);
 
         Domain.create(newDomain, function(err, newlyCreated) {
