@@ -55,9 +55,21 @@ router.get("/new", function(req, res) {
     res.render("dashboard/new");
 });
 
+// EDIT
 router.get("/:id/edit", function(req, res) {
     Domain.findById(req.params.id, function(err, foundDomain) {
         res.render("dashboard/edit", {domain: foundDomain})
+    });
+});
+
+// DESTROY
+router.delete("/:id", function(req, res) {
+    Domain.findByIdAndRemove(req.params.id, function(err) {
+        if (err) {
+            console.log("Error, cannot delete: " + err);
+        } else {
+            res.redirect("/dashboard");
+        };
     });
 });
 

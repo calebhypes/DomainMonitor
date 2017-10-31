@@ -10,8 +10,12 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success btn-block">Update</button>
-                    <button class="btn btn-danger btn-block">Delete</button>
                 </div>
+            </form>
+            <form action="/dashboard/<%= domain._id %>?_method=DELETE" method="POST">
+                <div class="form-group"></div>
+                    <button class="btn btn-danger btn-block">Delete</button>
+                <div class="form-group"></div>
             </form>
             <a href="/dashboard">Go Back..</a>
         </div>
