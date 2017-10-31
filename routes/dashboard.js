@@ -1,15 +1,23 @@
 var express      = require('express'),
     router       = express.Router(),
     whois        = require('whois-json'),
-    Domain       = require('../models/domain');
+    Domain       = require('../models/domain'),
+    User         = require('../models/user');
 
 // INDEX
 router.get("/", function(req, res) {
-    Domain.find({}, function(err, allDomains) {
+    // Domain.find({}, function(err, allDomains) {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         res.render("dashboard/index", {domains: allDomains, page: 'dashboard'});
+    //     }
+    // });
+    User.findById(req.user._id).populate("domains").exec(function(err, foundUser) {
         if (err) {
             console.log(err);
         } else {
-            res.render("dashboard/index", {domains: allDomains, page: 'dashboard'});
+            res.render("dashboard/index", {user: foundUser, page: "dashboard" });
         }
     });
 });
@@ -36,18 +44,20 @@ router.post("/", function(req, res) {
         // var nameServers = JSON.stringify(data.nameServers).split(" ");
         var sslExists = "Yes";
         var newDomain = {domain: domain, creationDate: creationDate, lastUpdated: lastUpdated, expiryDate: expiryDate, owner: owner, sslExists: sslExists};
-        console.log(newDomain);
-
-        Domain.create(newDomain, function(err, newlyCreated) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log("Added new domain to database!");
-                res.redirect("/dashboard");
-            };
+        // console.log(newDomain);
+        User.findById(req.user._id, function(err, user) {
+            Domain.create(newDomain, function(err, newlyCreated) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    user.domains.push(newlyCreated);
+                    user.save();
+                    console.log("Added new domain to database!");
+                    res.redirect("/dashboard");
+                };
+            });
         });
     });
-    // add new domain to DB
 });
 
 // NEW

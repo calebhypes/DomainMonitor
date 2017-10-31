@@ -25,8 +25,7 @@
               </tr>
             </thead>
             <tbody>
-              <% domains.forEach(function(domain) { %>
-                <% if (domain.owner.id.equals(currentUser._id)) { %>
+              <% user.domains.forEach(function(domain) { %>
                 <tr>
                   <td><%= domain.domain %></td>
                   <td><%= domain.creationDate %></td>
@@ -35,7 +34,6 @@
                   <td>Yes</td>
                   <td><a class="btn btn-primary" href="/dashboard/<%= domain._id %>/edit">Edit</a></td>
                 </tr>
-                <% } %>
               <% }) %>
             </tbody>
           </table>

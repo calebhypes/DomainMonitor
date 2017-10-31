@@ -15,7 +15,7 @@ var dashboardRoutes = require('./routes/dashboard'),
     indexRoutes     = require('./routes/index');
 
 // Config
-mongoose.connect('mongodb://localhost/whois', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/whois_v2', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
