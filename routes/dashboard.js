@@ -2,10 +2,11 @@ var express      = require('express'),
     router       = express.Router(),
     whois        = require('whois-json'),
     Domain       = require('../models/domain'),
-    User         = require('../models/user');
+    User         = require('../models/user'),
+    middleware   = require('../middleware');
 
 // INDEX
-router.get("/", function(req, res) {
+router.get("/", middleware.isLoggedIn, function(req, res) {
     // Domain.find({}, function(err, allDomains) {
     //     if (err) {
     //         console.log(err);
@@ -23,7 +24,7 @@ router.get("/", function(req, res) {
 });
 
 // CREATE
-router.post("/", function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     // get data from form
     var domain = req.body.domain;
 
@@ -61,19 +62,19 @@ router.post("/", function(req, res) {
 });
 
 // NEW
-router.get("/new", function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
     res.render("dashboard/new");
 });
 
 // EDIT
-router.get("/:id/edit", function(req, res) {
+router.get("/:id/edit", middleware.checkDomainOwnership, function(req, res) {
     Domain.findById(req.params.id, function(err, foundDomain) {
         res.render("dashboard/edit", {domain: foundDomain})
     });
 });
 
 // DESTROY
-router.delete("/:id", function(req, res) {
+router.delete("/:id", middleware.checkDomainOwnership, function(req, res) {
     Domain.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
             console.log("Error, cannot delete: " + err);

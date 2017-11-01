@@ -20,11 +20,11 @@ router.post("/register", function (req, res) {
     var newUser =  new User({username: req.body.username});
     User.register(newUser, req.body.password, function (err, user) {
         if (err) {
-            console.log("Error occurred while creating account!");
+            req.flash("error", err.message);
             return res.redirect("register");
         }
         passport.authenticate("local")(req, res, function() {
-            console.log("Account created successfully!");
+            req.flash("success", "Welcome to Domain Monitor, " + user.username);
             res.redirect("/dashboard");
         });
     });
@@ -46,6 +46,7 @@ router.post("/login", passport.authenticate("local",
 //logout logic
 router.get("/logout", function(req, res) {
     req.logout();
+    req.flash("success", "Logged you out!");
     res.redirect("/");
     console.log("Logged out!");
 });

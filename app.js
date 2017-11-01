@@ -7,6 +7,7 @@ var express         = require('express'),
     LocalStrategy   = require('passport-local'),
     whois           = require('whois-json'),
     methodOverride  = require('method-override'),
+    flash           = require('connect-flash'),
     User            = require('./models/user'),
     Domain          = require('./models/domain');
 
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://localhost/whois_v2', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 app.set("view engine", "ejs");
 
 
