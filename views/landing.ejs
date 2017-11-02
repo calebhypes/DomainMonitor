@@ -6,9 +6,25 @@
         <link rel="stylesheet" href="/stylesheets/landing.css">
     </head>
     <body>
+        <div class="container">
+            <% if(error && error.length > 0){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            <% } %>
+        </div>
         <span class="auth">
-            <a class="btn btn-sm btn-primary" href="/login">Login</a>
-            <a class="btn btn-sm btn-primary" href="/register">Sign Up</a>
+            <% if(!currentUser) { %>
+                <a class="btn btn-sm btn-primary" href="/login">Login</a>
+                <a class="btn btn-sm btn-primary" href="/register">Sign Up</a>
+            <% } else { %>
+                <a class="btn btn-sm btn-primary" href="/logout">Logout</a>
+            <% } %>
         </span>
         <div class="center">
             <h1>Welcome to Domain Monitor</h1>
@@ -17,7 +33,9 @@
             <a href="/register" class="btn btn-lg btn-success">Get Started!</a>
             <a href="#" class="btn btn-lg btn-primary">Learn More</a>
         </div>
-        
+        <ul class="slideshow">
+            <li></li>
+        </ul>
 
-        <img class="background" src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=3302&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt="">
+
 <% include partials/footer %>

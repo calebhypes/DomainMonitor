@@ -53,6 +53,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
                 } else {
                     user.domains.push(newlyCreated);
                     user.save();
+                    req.flash("success", "Successfully created new domain listing!")
                     console.log("Added new domain to database!");
                     res.redirect("/dashboard");
                 };
@@ -77,8 +78,9 @@ router.get("/:id/edit", middleware.checkDomainOwnership, function(req, res) {
 router.delete("/:id", middleware.checkDomainOwnership, function(req, res) {
     Domain.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
-            console.log("Error, cannot delete: " + err);
+            res.redirect("/dashboard");
         } else {
+            req.flash("success", "Domain listing removed!");
             res.redirect("/dashboard");
         };
     });

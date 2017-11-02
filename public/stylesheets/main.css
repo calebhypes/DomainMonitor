@@ -127,7 +127,5 @@ input {
 }
 
 .alert {
-  margin: 0 24%;
   text-align: center;
-  width: 75%;
 }
