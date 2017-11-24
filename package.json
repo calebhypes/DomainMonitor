@@ -11,10 +11,12 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
+    "moment": "^2.19.2",
     "mongoose": "^4.12.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

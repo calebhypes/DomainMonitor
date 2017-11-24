@@ -16,6 +16,7 @@ var dashboardRoutes = require('./routes/dashboard'),
     indexRoutes     = require('./routes/index');
 
 // Config
+require('dotenv').config();
 mongoose.connect('mongodb://localhost/whois_v2', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
@@ -26,7 +27,7 @@ app.use(flash());
 
 // Passport Config
 app.use(require("express-session")({
-    secret: "This is a test secret, quick brown fox",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }));
