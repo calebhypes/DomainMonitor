@@ -23,7 +23,7 @@
         <![endif]-->
     </head>
     <body>
-        
+      
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -46,6 +46,7 @@
                 <li><a href="/register">Sign Up</a></li>
               <% } else { %>
                 <li><a href="/dashboard">Welcome, <%= currentUser.username %></a></li>
+                <li class="divider">|</li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Help</a></li>
                 <li><a href="/logout">Logout</a></li>

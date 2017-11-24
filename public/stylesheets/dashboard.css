@@ -131,3 +131,10 @@ input {
   text-align: center;
   width: 75%;
 }
+
+.divider {
+  color: grey;
+  position: relative;
+  top: 10px;
+  font-size: 20px;
+}

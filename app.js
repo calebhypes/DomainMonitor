@@ -17,13 +17,13 @@ var dashboardRoutes = require('./routes/dashboard'),
 
 // Config
 require('dotenv').config();
+mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/whois_v2', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.use(flash());
-
 
 // Passport Config
 app.use(require("express-session")({

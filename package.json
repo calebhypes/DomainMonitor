@@ -9,6 +9,7 @@
   "author": "Caleb Cox",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
     "dotenv": "^4.0.0",
